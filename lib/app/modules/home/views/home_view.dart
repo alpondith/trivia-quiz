@@ -21,9 +21,7 @@ class HomeView extends GetView<HomeController> {
               onPressed: () => Get.toNamed(Routes.QUIZ),
               child: const Text('Start Quiz'),
             ),
-            const SizedBox(
-              height: 16,
-            ),
+            const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {},
               child: const Text('View History'),
