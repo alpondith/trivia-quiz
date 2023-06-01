@@ -14,33 +14,35 @@ class QuizView extends GetView<QuizController> {
         centerTitle: true,
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text('Question '),
-            const SizedBox(height: 16),
-            const Text('This is very hard question ?'),
-            const SizedBox(height: 32),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('Option 1'),
-            ),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('Option 2'),
-            ),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('Option 3'),
-            ),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('Option 4'),
-            ),
-          ],
+        child: controller.obx(
+          (data) => Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text('Question '),
+              const SizedBox(height: 16),
+              Text(data['question']),
+              const SizedBox(height: 32),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text(data['option-1']),
+              ),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text(data['option-2']),
+              ),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text(data['option-3']),
+              ),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () => controller.nextQuestion(),
+                child: Text(data['option-4']),
+              ),
+            ],
+          ),
         ),
       ),
     );
