@@ -10,7 +10,7 @@ class HistoryView extends GetView<HistoryController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('HistoryView'),
+        title: const Text('Quiz History'),
         centerTitle: true,
       ),
       body: Center(
@@ -28,7 +28,7 @@ class HistoryView extends GetView<HistoryController> {
             const Text('11 pm , June 1 , 2023  - 3 points'),
             const SizedBox(height: 32),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () => Get.back(),
               child: const Text('Go Back'),
             ),
           ],

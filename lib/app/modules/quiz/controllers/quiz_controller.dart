@@ -1,7 +1,14 @@
 import 'package:get/get.dart';
+import 'package:trivia_quiz/app/routes/app_pages.dart';
+
+import '../../../data/dataset.dart';
 
 class QuizController extends GetxController with StateMixin {
-  int index = 0;
+  List<Map<String, String>> questions = DataSet.questions;
+
+  final _index = 0.obs;
+  get index => _index.value;
+  set index(v) => _index.value = v;
 
   final _messageVisible = false.obs;
   get messageVisible => _messageVisible.value;
@@ -10,6 +17,14 @@ class QuizController extends GetxController with StateMixin {
   final _message = ''.obs;
   get message => _message.value;
   set message(v) => _message.value = v;
+
+  final _score = 0.obs;
+  get score => _score.value;
+  set score(v) => _score.value = v;
+  void scorePlus() => _score.value++;
+  void scoreMinus() => score <= 1 ? score = 0 : score--;
+
+  bool isAnswered = false;
 
   @override
   void onInit() {
@@ -24,64 +39,29 @@ class QuizController extends GetxController with StateMixin {
   }
 
   void nextQuestion() {
+    isAnswered = false;
     messageVisible = false;
     index++;
     if (index < questions.length) {
       setQuestion(index);
     } else {
-      // go to score page
+      Get.toNamed(Routes.SCORE, arguments: score);
     }
   }
 
   void checkAnswer(String key) {
+    if (isAnswered) {
+      return;
+    }
+    String? selectedAnswer = questions[index][key];
     if (questions[index]['answer'] == key) {
-      message = 'Your answer is correct';
+      scorePlus();
+      message = "Correct. your have selected : $selectedAnswer ";
     } else {
-      message = 'Your answer is Incorrect';
+      scoreMinus();
+      message = 'Incorrect. your have selected : $selectedAnswer';
     }
     messageVisible = true;
+    isAnswered = true;
   }
-
-  List<Map<String, String>> questions = [
-    {
-      'question': "This is first question",
-      'answer': 'option-1',
-      'option-1': 'Option One',
-      'option-2': 'Option two',
-      'option-3': 'Option three',
-      'option-4': 'Option Four',
-    },
-    {
-      'question': "This is second question",
-      'answer': 'option-3',
-      'option-1': 'Option One',
-      'option-2': 'Option two',
-      'option-3': 'Option three',
-      'option-4': 'Option Four',
-    },
-    {
-      'question': "This is third question",
-      'answer': 'option-4',
-      'option-1': 'Option One',
-      'option-2': 'Option two',
-      'option-3': 'Option three',
-      'option-4': 'Option Four',
-    },
-    {
-      'question': "This is fourth question",
-      'answer': 'option-2',
-      'option-1': 'Option One',
-      'option-2': 'Option two',
-      'option-3': 'Option three',
-      'option-4': 'Option Four',
-    },
-    {
-      'question': "This is fifth question",
-      'answer': 'option-3',
-      'option-1': 'Option One',
-      'option-2': 'Option two',
-      'option-3': 'Option three',
-      'option-4': 'Option Four',
-    },
-  ];
 }

@@ -10,7 +10,7 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('HomeView'),
+        title: const Text('Trivia Quiz'),
         centerTitle: true,
       ),
       body: Center(
@@ -23,7 +23,7 @@ class HomeView extends GetView<HomeController> {
             ),
             const SizedBox(height: 16),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () => Get.toNamed(Routes.HISTORY),
               child: const Text('View History'),
             ),
           ],

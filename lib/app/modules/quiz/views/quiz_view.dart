@@ -10,7 +10,7 @@ class QuizView extends GetView<QuizController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('QuizView'),
+        title: const Text('Quiz'),
         centerTitle: true,
       ),
       body: Center(
@@ -18,7 +18,13 @@ class QuizView extends GetView<QuizController> {
           (data) => Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Question '),
+              Obx(
+                () => Text('Score :  ${controller.score}'),
+              ),
+              const SizedBox(height: 32),
+              Obx(
+                () => Text("Question : ${controller.index + 1}"),
+              ),
               const SizedBox(height: 16),
               Text(data['question']),
               const SizedBox(height: 32),
@@ -46,8 +52,9 @@ class QuizView extends GetView<QuizController> {
                 () => Visibility(
                   visible: controller.messageVisible,
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(controller.message),
+                      Center(child: Text(controller.message)),
                       const SizedBox(height: 16),
                       ElevatedButton(
                         onPressed: () => controller.nextQuestion(),
