@@ -3,6 +3,14 @@ import 'package:get/get.dart';
 class QuizController extends GetxController with StateMixin {
   int index = 0;
 
+  final _messageVisible = false.obs;
+  get messageVisible => _messageVisible.value;
+  set messageVisible(v) => _messageVisible.value = v;
+
+  final _message = ''.obs;
+  get message => _message.value;
+  set message(v) => _message.value = v;
+
   @override
   void onInit() {
     setQuestion(index);
@@ -16,9 +24,8 @@ class QuizController extends GetxController with StateMixin {
   }
 
   void nextQuestion() {
+    messageVisible = false;
     index++;
-    print("index : " + index.toString());
-    print("length : " + questions.length.toString());
     if (index < questions.length) {
       setQuestion(index);
     } else {
@@ -26,7 +33,14 @@ class QuizController extends GetxController with StateMixin {
     }
   }
 
-  void checkAnswer() {}
+  void checkAnswer(String key) {
+    if (questions[index]['answer'] == key) {
+      message = 'Your answer is correct';
+    } else {
+      message = 'Your answer is Incorrect';
+    }
+    messageVisible = true;
+  }
 
   List<Map<String, String>> questions = [
     {

@@ -23,23 +23,39 @@ class QuizView extends GetView<QuizController> {
               Text(data['question']),
               const SizedBox(height: 32),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () => controller.checkAnswer('option-1'),
                 child: Text(data['option-1']),
               ),
               const SizedBox(height: 16),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () => controller.checkAnswer('option-2'),
                 child: Text(data['option-2']),
               ),
               const SizedBox(height: 16),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () => controller.checkAnswer('option-3'),
                 child: Text(data['option-3']),
               ),
               const SizedBox(height: 16),
               ElevatedButton(
-                onPressed: () => controller.nextQuestion(),
+                onPressed: () => controller.checkAnswer('option-4'),
                 child: Text(data['option-4']),
+              ),
+              const SizedBox(height: 64),
+              Obx(
+                () => Visibility(
+                  visible: controller.messageVisible,
+                  child: Column(
+                    children: [
+                      Text(controller.message),
+                      const SizedBox(height: 16),
+                      ElevatedButton(
+                        onPressed: () => controller.nextQuestion(),
+                        child: const Text('Next'),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),
