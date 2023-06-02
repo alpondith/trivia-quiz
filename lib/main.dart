@@ -8,6 +8,7 @@ import 'app/data/theme/app_theme.dart';
 
 void main() async {
   await GetStorage.init();
+  // GetStorage().erase();
   runApp(
     GetMaterialApp(
       title: "Application",

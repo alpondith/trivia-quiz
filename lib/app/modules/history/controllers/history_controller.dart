@@ -10,6 +10,10 @@ class HistoryController extends GetxController with StateMixin {
 
   void load() async {
     var history = await GetStorage().read('history');
-    change(history, status: RxStatus.success());
+    if (history == null) {
+      change(null, status: RxStatus.empty());
+    } else {
+      change(history, status: RxStatus.success());
+    }
   }
 }

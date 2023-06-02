@@ -35,6 +35,9 @@ class HistoryView extends GetView<HistoryController> {
             );
           },
         ),
+        onEmpty: const Center(
+          child: Text('No History Found'),
+        ),
       ),
     );
   }
