@@ -26,8 +26,7 @@ class ScoreView extends GetView<ScoreController> {
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                Get.back();
-                Get.back();
+                Get.offAllNamed(Routes.HOME);
                 Get.toNamed(Routes.QUIZ);
               },
               child: const Text('Play Again'),
@@ -35,8 +34,7 @@ class ScoreView extends GetView<ScoreController> {
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                Get.back();
-                Get.back();
+                Get.offAllNamed(Routes.HOME);
                 Get.toNamed(Routes.HISTORY);
               },
               child: const Text('View History'),

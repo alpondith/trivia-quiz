@@ -8,6 +8,7 @@ class HistoryView extends GetView<HistoryController> {
   const HistoryView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    // var history = controller.history;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Quiz History'),
@@ -17,7 +18,13 @@ class HistoryView extends GetView<HistoryController> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('11 pm , June 1 , 2023  - 3 points'),
+            // controller.obx(
+            //   (data) => Column(
+            //     children: [
+            //       for (var history in controller.history) const Text('11 pm , June 1 , 2023  - 3 points'),
+            //     ],
+            //   ),
+            // ),
             const SizedBox(height: 16),
             const Text('11 pm , June 1 , 2023  - 3 points'),
             const SizedBox(height: 16),
