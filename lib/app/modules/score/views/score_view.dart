@@ -19,11 +19,15 @@ class ScoreView extends GetView<ScoreController> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text("Your Score"),
-            const SizedBox(height: 16),
+            const SizedBox(height: 8),
             Text(
               controller.score.toString(),
+              style: const TextStyle(
+                fontSize: 60,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 32),
             ElevatedButton(
               onPressed: () {
                 Get.offAllNamed(Routes.HOME);

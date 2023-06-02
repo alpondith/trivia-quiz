@@ -24,6 +24,7 @@ class QuizView extends GetView<QuizController> {
                   'Score :  ${controller.score}',
                   style: const TextStyle(
                     fontSize: 24,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
@@ -31,8 +32,13 @@ class QuizView extends GetView<QuizController> {
               Obx(
                 () => Text("Question : ${controller.index + 1}"),
               ),
-              const SizedBox(height: 16),
-              Text(data['question']),
+              const SizedBox(height: 8),
+              Text(
+                data['question'],
+                style: const TextStyle(
+                  fontSize: 20,
+                ),
+              ),
               const SizedBox(height: 32),
               ElevatedButton(
                 onPressed: () => controller.checkAnswer('option-1'),
