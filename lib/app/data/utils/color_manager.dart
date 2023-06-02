@@ -9,7 +9,7 @@ class ColorManager {
   static const Color PRIMARY = Color(0xFFEFD5FF);
   static const Color PRIMARY_ALT = Color(0xffFFFFFF);
   // use 30%
-  static const Color SECONDARY = Color(0xffFBE7C6);
+  static const Color SECONDARY = Color(0xFFFFF7EB);
   static const Color SECONDARY_ALT = Color(0xFFF7BDC6);
 
   // use 10%
