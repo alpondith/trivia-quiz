@@ -56,10 +56,10 @@ class QuizController extends GetxController with StateMixin {
     String? selectedAnswer = questions[index][key];
     if (questions[index]['answer'] == key) {
       scorePlus();
-      message = "Correct. your have selected : $selectedAnswer ";
+      message = " \" $selectedAnswer \" is correct";
     } else {
       scoreMinus();
-      message = 'Incorrect. your have selected : $selectedAnswer';
+      message = " \" $selectedAnswer \" is incorrect.";
     }
     messageVisible = true;
     isAnswered = true;

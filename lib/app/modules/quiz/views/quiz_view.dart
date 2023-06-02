@@ -19,7 +19,12 @@ class QuizView extends GetView<QuizController> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Obx(
-                () => Text('Score :  ${controller.score}'),
+                () => Text(
+                  'Score :  ${controller.score}',
+                  style: const TextStyle(
+                    fontSize: 24,
+                  ),
+                ),
               ),
               const SizedBox(height: 32),
               Obx(
