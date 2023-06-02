@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:intl/intl.dart';
 
 class ScoreController extends GetxController {
   final score = Get.arguments;
@@ -13,14 +14,15 @@ class ScoreController extends GetxController {
   void setHistory() {
     var history = GetStorage().read('history');
 
-    DateTime now = DateTime.now().add(const Duration(hours: 6));
+    String now = DateFormat('hh:mm a , EEEE, MMM d, yyyy ').format(DateTime.now());
+
     if (history == null) {
       Map data = {
-        '$now': score,
+        now: score,
       };
       GetStorage().write('history', data);
     } else {
-      history['$now'] = score;
+      history[now] = score;
     }
   }
 }
