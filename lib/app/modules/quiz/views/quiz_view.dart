@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:trivia_quiz/app/data/utils/color_manager.dart';
 
 import '../controllers/quiz_controller.dart';
 
@@ -63,6 +64,9 @@ class QuizView extends GetView<QuizController> {
                       const SizedBox(height: 16),
                       ElevatedButton(
                         onPressed: () => controller.nextQuestion(),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: ColorManager.ACCENT_ALT,
+                        ),
                         child: const Text('Next'),
                       ),
                     ],

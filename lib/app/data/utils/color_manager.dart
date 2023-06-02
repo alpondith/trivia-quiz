@@ -14,7 +14,7 @@ class ColorManager {
 
   // use 10%
   static const Color ACCENT = Color(0xff2C041D);
-  static const Color ACCENT_ALT = Color(0xFF292E38);
+  static const Color ACCENT_ALT = Color(0xFF611A57);
 
   static const Color ACTIVE = ColorManager.ACCENT;
   static const Color INACTIVE = ColorManager.PRIMARY_ALT;
